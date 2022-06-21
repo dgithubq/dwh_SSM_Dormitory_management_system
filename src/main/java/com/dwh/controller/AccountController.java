@@ -42,4 +42,10 @@ public class AccountController {
         }
         return modelAndView;
     }
+    //退出登录
+    @RequestMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "/login";
+    }
 }
