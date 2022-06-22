@@ -22,4 +22,13 @@ public class DormitoryAdminController {
         modelAndView.setViewName("adminmanager");
         return modelAndView;
     }
+
+    @RequestMapping("/search")
+    public ModelAndView search(String key,String value){
+        ModelAndView modelAndView = new ModelAndView();
+        List<DormitoryAdmin> dormitoryAdmins = dormitoryAdminService.search(key, value);
+        modelAndView.addObject("dormitoryAdmins",dormitoryAdmins);
+        modelAndView.setViewName("adminmanager");
+        return modelAndView;
+    }
 }

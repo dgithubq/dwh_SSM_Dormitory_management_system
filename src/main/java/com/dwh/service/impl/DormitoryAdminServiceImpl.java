@@ -17,4 +17,25 @@ public class DormitoryAdminServiceImpl implements DormitoryAdminService {
         List<DormitoryAdmin> dormitoryAdmins = dormitoryAdminMapper.list();
         return dormitoryAdmins;
     }
+
+    @Override
+    public List<DormitoryAdmin> search(String key, String value) {
+        if (key.equals("")){
+            List<DormitoryAdmin> list = dormitoryAdminMapper.list();
+            return list;
+        }
+        List<DormitoryAdmin> list = null;
+        switch (key){
+            case "name":
+                list = dormitoryAdminMapper.searchByName(value);
+                break;
+            case "username":
+                list = dormitoryAdminMapper.searchByUsername(value);
+                break;
+            case "telephone":
+                list = dormitoryAdminMapper.searchByTelephone(value);
+                break;
+        }
+        return list;
+    }
 }
