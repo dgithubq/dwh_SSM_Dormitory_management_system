@@ -67,7 +67,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${list}" var="dormitoryAdmin">
+                    <c:forEach items="${dormitoryAdmins}" var="dormitoryAdmin">
                         <tr>
                             <td>${dormitoryAdmin.id}</td>
                             <td>${dormitoryAdmin.username}</td>
