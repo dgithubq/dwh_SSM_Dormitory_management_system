@@ -31,4 +31,10 @@ public class DormitoryAdminController {
         modelAndView.setViewName("adminmanager");
         return modelAndView;
     }
+
+    @RequestMapping("/save")
+    public String save(DormitoryAdmin dormitoryAdmin){
+        dormitoryAdminService.save(dormitoryAdmin);
+        return "redirect:/dormitoryAdmin/list";
+    }
 }

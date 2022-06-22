@@ -19,4 +19,8 @@ public interface DormitoryAdminService {
      * @return
      */
     public List<DormitoryAdmin> search(String key,String value);
+    /**
+     * 添加
+     */
+    public void save(DormitoryAdmin dormitoryAdmin);
 }

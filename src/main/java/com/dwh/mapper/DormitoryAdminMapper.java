@@ -1,6 +1,7 @@
 package com.dwh.mapper;
 
 import com.dwh.entity.DormitoryAdmin;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -29,4 +30,9 @@ public interface DormitoryAdminMapper {
     @Select("select * from dormitory_admin where telephone like concat('%',#{value},'%')")
     public List<DormitoryAdmin> searchByTelephone(String value);
 
+    /**
+     * 添加功能
+     */
+    @Insert("Insert into dormitory_admin (id,username,password,name,gender,telephone) values(#{id},#{username},#{password},#{name},#{gender},#{telephone})")
+    public void save(DormitoryAdmin dormitoryAdmin);
 }

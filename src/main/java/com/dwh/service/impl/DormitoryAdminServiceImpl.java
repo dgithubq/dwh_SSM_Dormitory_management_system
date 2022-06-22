@@ -38,4 +38,9 @@ public class DormitoryAdminServiceImpl implements DormitoryAdminService {
         }
         return list;
     }
+
+    @Override
+    public void save(DormitoryAdmin dormitoryAdmin) {
+        dormitoryAdminMapper.save(dormitoryAdmin);
+    }
 }
