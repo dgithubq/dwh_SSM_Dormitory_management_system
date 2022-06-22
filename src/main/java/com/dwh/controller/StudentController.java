@@ -49,4 +49,10 @@ public class StudentController {
         return "redirect:/student/findAllStudent";
     }
 
+    @RequestMapping("/update")
+    public String update(Student student){
+        service.update(student);
+        return "redirect:/student/findAllStudent";
+    }
+
 }

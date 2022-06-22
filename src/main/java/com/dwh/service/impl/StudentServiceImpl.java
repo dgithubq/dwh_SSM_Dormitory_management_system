@@ -6,6 +6,7 @@ import com.dwh.mapper.StudentMapper;
 import com.dwh.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,6 +50,22 @@ public class StudentServiceImpl implements StudentService {
         try {
             this.mapper.save(student);
             this.dormitoryMapper.subAvailable(student.getDormitory_id());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //修改学生信息
+
+    @Transactional
+    @Override
+    public void update(Student student) {
+        try {
+            this.mapper.update(student);
+            if ((student.getDormitory_id()) != (student.getOldDormitoryId())){//如果修改了寝室号
+                this.dormitoryMapper.subAvailable(student.getDormitory_id());//现在寝室床位-1
+                this.dormitoryMapper.addAvailable(student.getOldDormitoryId());//原来寝室床位+1
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

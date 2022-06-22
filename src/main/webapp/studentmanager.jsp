@@ -190,9 +190,9 @@
                                         <div class="form-group">
                                             <label for="user_id" class="col-sm-3 control-label">宿舍</label>
                                             <div class="col-sm-9">
-                                                <select class="form-control" name="dormitoryId">
+                                                <select class="form-control" name="dormitory_id">
                                                     <c:forEach items="${dormitoryList}" var="dormitory">
-                                                        <option value="${dormitory.id}" class="dormitory">${dormitory.name}</option>
+                                                        <option value="${dormitory.id}" class="dormitory">${dormitory.id}</option>
                                                     </c:forEach>
                                                 </select>
                                             </div>
@@ -290,7 +290,7 @@
     $('#updateUserModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var id = button.data('id')
-        var dormitoryId = button.data('dormitory-id')
+        var dormitory_id = button.data('dormitory-id')
         var number = button.data('number')
         var name = button.data('name')
         var gender = button.data('gender')
@@ -302,7 +302,7 @@
         modal.find('#number').val(number)
         modal.find('#name').val(name)
         modal.find('#time').val(time)
-        modal.find('#oldDormitoryId').val(dormitoryId)
+        modal.find('#oldDormitoryId').val(dormitory_id)
         var list = modal.find('.gender')
         for(var i=0;i<list.length;i++){
             if(gender == $(list.get(i)).val()){
@@ -311,7 +311,7 @@
         }
         var list2 = modal.find('.dormitory')
         for(var i=0;i<list2.length;i++){
-            if(dormitoryId == $(list2.get(i)).val()){
+            if(dormitory_id == $(list2.get(i)).val()){
                 $(list2.get(i)).prop('selected',true)
             }
         }

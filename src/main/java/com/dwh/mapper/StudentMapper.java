@@ -1,8 +1,10 @@
 package com.dwh.mapper;
 
 import com.dwh.entity.Student;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,4 +24,10 @@ public interface StudentMapper {
     //添加新的学生住宿信息
     @Insert("Insert into student(number,name,gender,dormitory_id,state,create_date) values(#{number},#{name},#{gender},#{dormitory_id},'入住',#{create_date})")
     public void save(Student student);
+
+    //修改学生住宿信息
+    @Update("update Student set number = #{number},name = #{name},gender = #{gender},dormitory_id = #{dormitory_id} where id = #{id}")
+    public void update(Student student);
+
+
 }

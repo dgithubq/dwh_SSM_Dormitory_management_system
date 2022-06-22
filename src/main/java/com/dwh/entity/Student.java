@@ -8,15 +8,20 @@ public class Student implements Serializable {
     private String name;
     private String gender;
     private int dormitory_id;
+    private int oldDormitoryId;
+    private String dormitoryName;
     private String state;
     private String create_date;
 
-    public Student(int id, String number, String name, String gender, int dormitory_id, String state, String create_date) {
+
+    public Student(int id, String number, String name, String gender, int dormitory_id, int oldDormitoryId, String dormitoryName, String state, String create_date) {
         this.id = id;
         this.number = number;
         this.name = name;
         this.gender = gender;
         this.dormitory_id = dormitory_id;
+        this.oldDormitoryId = oldDormitoryId;
+        this.dormitoryName = dormitoryName;
         this.state = state;
         this.create_date = create_date;
     }
@@ -64,6 +69,22 @@ public class Student implements Serializable {
         this.dormitory_id = dormitory_id;
     }
 
+    public int getOldDormitoryId() {
+        return oldDormitoryId;
+    }
+
+    public void setOldDormitoryId(int oldDormitoryId) {
+        this.oldDormitoryId = oldDormitoryId;
+    }
+
+    public String getDormitoryName() {
+        return dormitoryName;
+    }
+
+    public void setDormitoryName(String dormitoryName) {
+        this.dormitoryName = dormitoryName;
+    }
+
     public String getState() {
         return state;
     }
@@ -88,6 +109,8 @@ public class Student implements Serializable {
                 ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", dormitory_id=" + dormitory_id +
+                ", oldDormitoryId=" + oldDormitoryId +
+                ", dormitoryName='" + dormitoryName + '\'' +
                 ", state='" + state + '\'' +
                 ", create_date='" + create_date + '\'' +
                 '}';

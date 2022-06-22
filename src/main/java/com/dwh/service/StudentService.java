@@ -10,5 +10,8 @@ public interface StudentService {
     public List<Student> search(String key,String value);
     //添加
     public void save(Student student);
+    //修改
+    public void update(Student student);
+
 
 }

@@ -27,5 +27,8 @@ public interface DormitoryMapper {
      * 不是单独功能，为的是给增加学生住宿使用，主要是提供一个可以使用的宿舍号
      */
     @Update("update dormitory set available = available-1 where id = #{id}")
-    public void subAvailable(Integer id);
+    public void subAvailable(Integer id);//可用床位-1
+
+    @Update("update dormitory set available = available+1 where id = #{id}")
+   public void addAvailable(int oldDormitory_id);//可用床位+1
 }
