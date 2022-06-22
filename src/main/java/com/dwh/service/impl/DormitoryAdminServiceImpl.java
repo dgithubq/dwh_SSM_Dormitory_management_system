@@ -43,4 +43,9 @@ public class DormitoryAdminServiceImpl implements DormitoryAdminService {
     public void save(DormitoryAdmin dormitoryAdmin) {
         dormitoryAdminMapper.save(dormitoryAdmin);
     }
+
+    @Override
+    public void delete(Integer id) {
+        dormitoryAdminMapper.delete(id);
+    }
 }

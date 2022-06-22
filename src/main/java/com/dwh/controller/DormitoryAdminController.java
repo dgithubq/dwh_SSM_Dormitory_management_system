@@ -37,4 +37,10 @@ public class DormitoryAdminController {
         dormitoryAdminService.save(dormitoryAdmin);
         return "redirect:/dormitoryAdmin/list";
     }
+
+    @RequestMapping("/delete")
+    public String delete(Integer id){
+        dormitoryAdminService.delete(id);
+        return "redirect:/dormitoryAdmin/list";
+    }
 }

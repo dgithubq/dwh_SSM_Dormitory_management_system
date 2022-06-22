@@ -23,4 +23,8 @@ public interface DormitoryAdminService {
      * 添加
      */
     public void save(DormitoryAdmin dormitoryAdmin);
+    /**
+     * 删除
+     */
+    public void delete(Integer id);
 }

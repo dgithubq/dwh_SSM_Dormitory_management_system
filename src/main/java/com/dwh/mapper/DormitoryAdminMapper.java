@@ -1,8 +1,10 @@
 package com.dwh.mapper;
 
 import com.dwh.entity.DormitoryAdmin;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -35,4 +37,14 @@ public interface DormitoryAdminMapper {
      */
     @Insert("Insert into dormitory_admin (id,username,password,name,gender,telephone) values(#{id},#{username},#{password},#{name},#{gender},#{telephone})")
     public void save(DormitoryAdmin dormitoryAdmin);
+    /**
+     * 删除功能
+     */
+    @Delete("delete from dormitory_admin where id = #{id}")
+    public void delete(Integer id);
+    /**
+     * 修改宿管信息
+     */
+    @Update("update dormitory_admin set username = #{username},password = #{password},name = #{name},gender = #{gender},telephone = #{telephone} where id = #{id}")
+    public void update(DormitoryAdmin dormitoryAdmin);
 }
