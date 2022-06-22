@@ -29,5 +29,7 @@ public interface StudentMapper {
     @Update("update Student set number = #{number},name = #{name},gender = #{gender},dormitory_id = #{dormitory_id} where id = #{id}")
     public void update(Student student);
 
-
+    //删除学生住宿信息
+    @Delete("delete from student where id = #{id}")
+    public void delete(Integer id);
 }

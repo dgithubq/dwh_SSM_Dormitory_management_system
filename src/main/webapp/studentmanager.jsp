@@ -267,7 +267,7 @@
                                                        name="tab" placeholder="" value="dor_admin"> <input
                                                     type="hidden" class="form-control" id="id"
                                                     name="id" placeholder="">
-                                                <input type="hidden" id="dormitoryId" name="dormitoryId">
+                                                <input type="hidden" id="dormitoryId" name="dormitory_id">
                                             </div>
                                         </div>
                                     </form>

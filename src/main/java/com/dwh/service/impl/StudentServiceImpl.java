@@ -70,4 +70,16 @@ public class StudentServiceImpl implements StudentService {
             e.printStackTrace();
         }
     }
+
+    //删除
+    @Transactional
+    @Override
+    public void delete(Student student) {
+        try {
+            mapper.delete(student.getId());
+            dormitoryMapper.addAvailable(student.getDormitory_id());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

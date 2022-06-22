@@ -55,4 +55,9 @@ public class StudentController {
         return "redirect:/student/findAllStudent";
     }
 
+    @RequestMapping("/delete")
+    public String delete(Student student){
+        service.delete(student);
+        return "redirect:/student/findAllStudent";
+    }
 }

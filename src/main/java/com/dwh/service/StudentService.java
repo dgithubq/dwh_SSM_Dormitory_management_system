@@ -12,6 +12,7 @@ public interface StudentService {
     public void save(Student student);
     //修改
     public void update(Student student);
-
+    //删除,这里的形参和mapper中不一样，是为了serviceImpl中更好实现
+    public void delete(Student student);
 
 }
