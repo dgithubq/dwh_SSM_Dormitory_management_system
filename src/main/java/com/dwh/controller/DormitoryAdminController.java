@@ -43,4 +43,9 @@ public class DormitoryAdminController {
         dormitoryAdminService.delete(id);
         return "redirect:/dormitoryAdmin/list";
     }
+    @RequestMapping("/update")
+    public String update(DormitoryAdmin dormitoryAdmin){
+        dormitoryAdminService.update(dormitoryAdmin);
+        return "redirect:/dormitoryAdmin/list";
+    }
 }

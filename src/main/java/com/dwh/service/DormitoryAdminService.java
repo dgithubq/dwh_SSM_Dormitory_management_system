@@ -27,4 +27,8 @@ public interface DormitoryAdminService {
      * 删除
      */
     public void delete(Integer id);
+    /**
+     * 修改
+     */
+    public void update(DormitoryAdmin dormitoryAdmin);
 }
