@@ -4,21 +4,19 @@ import java.io.Serializable;
 
 public class DormitoryAdmin implements Serializable {
     private int id;
-    private String number;
+    private String username;
+    private String password;
     private String name;
-    private String gender;
-    private int dormitory_id;
-    private String state;
-    private String create_date;
+    private int gender;
+    private String telephone;
 
-    public DormitoryAdmin(int id, String number, String name, String gender, int dormitory_id, String state, String create_date) {
+    public DormitoryAdmin(int id, String username, String password, String name, int gender, String telephone) {
         this.id = id;
-        this.number = number;
+        this.username = username;
+        this.password = password;
         this.name = name;
         this.gender = gender;
-        this.dormitory_id = dormitory_id;
-        this.state = state;
-        this.create_date = create_date;
+        this.telephone = telephone;
     }
 
     public DormitoryAdmin() {
@@ -32,12 +30,20 @@ public class DormitoryAdmin implements Serializable {
         this.id = id;
     }
 
-    public String getNumber() {
-        return number;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -48,48 +54,31 @@ public class DormitoryAdmin implements Serializable {
         this.name = name;
     }
 
-    public String getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 
-    public int getDormitory_id() {
-        return dormitory_id;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setDormitory_id(int dormitory_id) {
-        this.dormitory_id = dormitory_id;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getCreate_date() {
-        return create_date;
-    }
-
-    public void setCreate_date(String create_date) {
-        this.create_date = create_date;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     @Override
     public String toString() {
         return "DormitoryAdmin{" +
                 "id=" + id +
-                ", number='" + number + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", dormitory_id=" + dormitory_id +
-                ", state='" + state + '\'' +
-                ", create_date='" + create_date + '\'' +
+                ", gender=" + gender +
+                ", telephone='" + telephone + '\'' +
                 '}';
     }
 }
