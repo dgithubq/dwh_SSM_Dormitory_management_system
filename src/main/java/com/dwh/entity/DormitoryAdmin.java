@@ -7,10 +7,10 @@ public class DormitoryAdmin implements Serializable {
     private String username;
     private String password;
     private String name;
-    private int gender;
+    private String gender;
     private String telephone;
 
-    public DormitoryAdmin(int id, String username, String password, String name, int gender, String telephone) {
+    public DormitoryAdmin(int id, String username, String password, String name, String gender, String telephone) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -54,11 +54,11 @@ public class DormitoryAdmin implements Serializable {
         this.name = name;
     }
 
-    public int getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -77,7 +77,7 @@ public class DormitoryAdmin implements Serializable {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", gender=" + gender +
+                ", gender='" + gender + '\'' +
                 ", telephone='" + telephone + '\'' +
                 '}';
     }
