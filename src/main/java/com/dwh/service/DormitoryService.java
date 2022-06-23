@@ -15,4 +15,10 @@ public interface DormitoryService {
      * 查询所有宿舍
      */
     public List<Dormitory> list();
+
+    /**
+     * 添加新的宿舍
+     * @param dormitory
+     */
+    public void save(Dormitory dormitory);
 }

@@ -112,7 +112,7 @@
                                         <div class="form-group">
                                             <label for="user_id" class="col-sm-3 control-label">楼宇</label>
                                             <div class="col-sm-9">
-                                                <select class="form-control" name="buildingId">
+                                                <select class="form-control" name="building_id">
                                                     <c:forEach items="${buildingList}" var="building">
                                                         <option value="${building.id}">${building.name}</option>
                                                     </c:forEach>

@@ -23,4 +23,13 @@ public class DormitoryServiceImpl implements DormitoryService {
         List<Dormitory> list = dormitoryMapper.list();
         return list;
     }
+
+    @Override
+    public void save(Dormitory dormitory) {
+        try {
+            dormitoryMapper.save(dormitory);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

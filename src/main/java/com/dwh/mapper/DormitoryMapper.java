@@ -51,4 +51,11 @@ public interface DormitoryMapper {
 
     @Delete("delete from dormitory where id = #{dormitoryId}")
     public void delete(Integer dormitoryId);
+
+    /**
+     * 添加新的宿舍
+     * @param dormitory
+     */
+    @Insert("insert into dormitory (building_id,name,type,available,telephone) values(#{building_id},#{name},#{type},#{type},#{telephone})")
+    public void save(Dormitory dormitory);
 }
