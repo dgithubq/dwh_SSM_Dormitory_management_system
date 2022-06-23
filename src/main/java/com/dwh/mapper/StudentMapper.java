@@ -9,10 +9,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * 学生信息管理
+ */
 @Repository
 public interface StudentMapper {
     //查询所有学生的住宿信息
-    @Select("select * from student s,dormitory d where s.dormitory_id = d.id")
+    @Select("select s.id,s.number,s.name name,s.gender,s.dormitory_id dormitory_id,d.name dormitoryName,s.state,s.create_date create_date from student s,dormitory d where s.dormitory_id = d.id")
     List<Student> findAllStudent();
     //根据number查询
     @Select("select * from student s,dormitory d where s.dormitory_id = d.id and s.number like concat('%',#{value},'%')")
@@ -32,4 +35,12 @@ public interface StudentMapper {
     //删除学生住宿信息
     @Delete("delete from student where id = #{id}")
     public void delete(Integer id);
+
+    //根据dormitoryId查询学生
+    @Select("select id from student where dormitory_id = #{dormitoryId}")
+    public List<Integer> findStudentIdByDormitoryId(Integer dormitoryId);
+
+    //更新学生床位
+    @Select("update student set dormitory_id = #{param2} where id = #{param1}")
+    public void resetDormitoryId(Integer studentId, Integer availableDormitoryId);
 }

@@ -120,8 +120,8 @@
                                             <label for="user_id" class="col-sm-3 control-label">宿舍</label>
                                             <div class="col-sm-9">
                                                 <select class="form-control" name="dormitory_id">
-                                                    <c:forEach items="${dormitoryList}" var="dormitoryList">
-                                                        <option value="${dormitoryList.id}" class="dormitory">${dormitoryList.name}</option>
+                                                    <c:forEach items="${dormitoryList}" var="dormitory">
+                                                        <option value="${dormitory.id}" class="dormitory">${dormitory.id}</option>
                                                     </c:forEach>
                                                 </select>
                                             </div>

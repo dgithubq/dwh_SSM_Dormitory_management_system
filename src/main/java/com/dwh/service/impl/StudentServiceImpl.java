@@ -28,7 +28,7 @@ public class StudentServiceImpl implements StudentService {
         if (value.equals("")){
             return this.mapper.findAllStudent();
         }
-        //把查到的所有清空
+        //声明一个变量search
         List<Student> search = null;
         switch (key){
             case "number":

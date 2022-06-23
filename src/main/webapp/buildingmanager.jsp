@@ -74,7 +74,7 @@
                                             data-id="${building.id}"
                                             data-name="${building.name}"
                                             data-introduction="${building.introduction}"
-                                            data-admin-id="${building.adminId}"
+                                            data-admin-id="${building.admin_id}"
                                             data-toggle="modal"
                                             data-target="#updateUserModal">
                                         <i class="fa fa-user-o">修改</i>
@@ -125,7 +125,7 @@
                                         <div class="form-group">
                                             <label for="user_id" class="col-sm-3 control-label">管理员</label>
                                             <div class="col-sm-9">
-                                                <select class="form-control" name="adminId">
+                                                <select class="form-control" name="admin_id">
                                                     <c:forEach items="${dormitoryAdminList}" var="dormitoryAdmin">
                                                         <option value="${dormitoryAdmin.id}">${dormitoryAdmin.name}</option>
                                                     </c:forEach>
@@ -186,7 +186,7 @@
                                         <div class="form-group">
                                             <label for="user_id" class="col-sm-3 control-label">管理员</label>
                                             <div class="col-sm-9">
-                                                <select class="form-control" name="adminId">
+                                                <select class="form-control" name="admin_id">
                                                     <c:forEach items="${dormitoryAdminList}" var="dormitoryAdmin">
                                                         <option class="adminId" value="${dormitoryAdmin.id}">${dormitoryAdmin.name}</option>
                                                     </c:forEach>

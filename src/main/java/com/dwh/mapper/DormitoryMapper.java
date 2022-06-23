@@ -1,6 +1,7 @@
 package com.dwh.mapper;
 
 import com.dwh.entity.Dormitory;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -8,6 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * 宿舍管理
+ */
 @Repository
 public interface DormitoryMapper {
     /**
@@ -31,4 +35,20 @@ public interface DormitoryMapper {
 
     @Update("update dormitory set available = available+1 where id = #{id}")
    public void addAvailable(int oldDormitory_id);//可用床位+1
+
+    /**
+     * 根据楼宇id查这个楼所有的宿舍id
+     * @param id 楼栋id
+     */
+    @Select("select id from dormitory where building_id = #{id}")
+    public List<Integer> findDormitoryIdByBuildingId(Integer id);
+
+    /**
+     * 查询空余床
+     */
+    @Select("select id from dormitory where available > 0 limit 0,1")
+    public Integer findAvailableDormitoryId();
+
+    @Delete("delete from dormitory where id = #{dormitoryId}")
+    public void delete(Integer dormitoryId);
 }
