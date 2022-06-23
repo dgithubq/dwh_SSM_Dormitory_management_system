@@ -26,4 +26,9 @@ public class TestDormitoryMapper {
         List<Dormitory> list = dormitoryMapper.list();
         System.out.println("list = " + list);
     }
+    @Test
+    public void testSearch(){
+        List<Dormitory> dormitories = dormitoryMapper.searchByName("666");
+        System.out.println("dormitories = " + dormitories);
+    }
 }

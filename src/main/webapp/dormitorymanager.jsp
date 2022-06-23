@@ -56,7 +56,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>楼宇</th>
+                        <th>楼宇名</th>
                         <th>名称</th>
                         <th>几人间</th>
                         <th>空余床位</th>
@@ -68,7 +68,7 @@
                     <c:forEach items="${list}" var="dormitory">
                         <tr>
                             <td>${dormitory.id}</td>
-                            <td>${dormitory.building_id}</td>
+                            <td>${dormitory.buildingName}</td>
                             <td>${dormitory.name}</td>
                             <td>${dormitory.type}</td>
                             <td>${dormitory.available}</td>

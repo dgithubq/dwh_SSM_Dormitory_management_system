@@ -44,4 +44,15 @@ public class DormitoryController {
         dormitoryService.save(dormitory);
         return "redirect:/dormitory/list";
     }
+
+    @RequestMapping("/search")
+    public ModelAndView search(String key,String value){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Dormitory> list = dormitoryService.search(key, value);
+        List<Building> buildingList = buildingService.list();
+        modelAndView.addObject("list",list);
+        modelAndView.addObject("buildingList",buildingList);
+        modelAndView.setViewName("dormitorymanager");
+        return modelAndView;
+    }
 }

@@ -24,7 +24,7 @@ public interface DormitoryMapper {
     /**
      * 查询所有的宿舍
      */
-    @Select("select * from dormitory d,building b where d.building_id = b.id")
+    @Select("select d.id,b.name buildingName,d.name name,d.type,d.available,d.telephone from dormitory d,building b where d.building_id = b.id")
     public List<Dormitory> list();
     /**
      * 可用宿舍号,
@@ -58,4 +58,15 @@ public interface DormitoryMapper {
      */
     @Insert("insert into dormitory (building_id,name,type,available,telephone) values(#{building_id},#{name},#{type},#{type},#{telephone})")
     public void save(Dormitory dormitory);
+
+    /**
+     * 根据名字搜索宿舍
+     * @param value 搜索的关键字
+     * @return
+     */
+    @Select("select d.id,b.name buildingName,d.name name,d.type,d.available,d.telephone from dormitory d,building b where d.building_id = b.id and d.name like concat('%',#{value},'%')")
+    public List<Dormitory> searchByName(String value);
+
+    @Select("select d.id,b.name buildingName,d.name name,d.type,d.available,d.telephone from dormitory d,building b where d.building_id = b.id and d.telephone like concat('%',#{value},'%')")
+    public List<Dormitory> searchByTelephone(String value);
 }

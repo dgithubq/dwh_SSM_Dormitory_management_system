@@ -32,4 +32,22 @@ public class DormitoryServiceImpl implements DormitoryService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public List<Dormitory> search(String key, String value) {
+        if (value == null){
+            List<Dormitory> list = dormitoryMapper.list();
+            return list;
+        }
+        List<Dormitory> list = null;
+        switch (key){
+            case "name":
+                list = dormitoryMapper.searchByName(value);
+                break;
+            case "telephone":
+                list = dormitoryMapper.searchByTelephone(value);
+                break;
+        }
+        return list;
+    }
 }

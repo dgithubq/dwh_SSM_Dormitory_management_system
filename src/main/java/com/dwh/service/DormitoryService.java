@@ -21,4 +21,12 @@ public interface DormitoryService {
      * @param dormitory
      */
     public void save(Dormitory dormitory);
+
+    /**
+     * 根据条件查询
+     * @param key    条件
+     * @param value  关键字
+     * @return
+     */
+    public List<Dormitory> search(String key,String value);
 }

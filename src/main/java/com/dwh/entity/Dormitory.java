@@ -9,14 +9,16 @@ public class Dormitory implements Serializable {
     private int type;
     private int available;
     private int telephone;
+    private String buildingName;
 
-    public Dormitory(int id, int building_id, String name, int type, int available, int telephone) {
+    public Dormitory(int id, int building_id, String name, int type, int available, int telephone, String buildingName) {
         this.id = id;
         this.building_id = building_id;
         this.name = name;
         this.type = type;
         this.available = available;
         this.telephone = telephone;
+        this.buildingName = buildingName;
     }
 
     public Dormitory() {
@@ -70,6 +72,14 @@ public class Dormitory implements Serializable {
         this.telephone = telephone;
     }
 
+    public String getBuildingName() {
+        return buildingName;
+    }
+
+    public void setBuildingName(String buildingName) {
+        this.buildingName = buildingName;
+    }
+
     @Override
     public String toString() {
         return "Dormitory{" +
@@ -79,6 +89,7 @@ public class Dormitory implements Serializable {
                 ", type=" + type +
                 ", available=" + available +
                 ", telephone=" + telephone +
+                ", buildingName='" + buildingName + '\'' +
                 '}';
     }
 }
