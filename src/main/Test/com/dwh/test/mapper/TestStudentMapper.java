@@ -42,4 +42,10 @@ public class TestStudentMapper {
         mapper.save(student);
         System.out.println("student = " + student);
     }
+
+    @Test
+    public void testMoveOutList(){
+        List<Student> students = mapper.moveOutList();
+        System.out.println("students = " + students);
+    }
 }

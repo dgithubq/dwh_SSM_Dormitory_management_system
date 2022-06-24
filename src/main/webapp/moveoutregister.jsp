@@ -59,7 +59,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${list}" var="student">
+                    <c:forEach items="${studentList}" var="student">
                         <tr>
                             <td>${student.id}</td>
                             <td>${student.dormitoryName}</td>
@@ -71,7 +71,7 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger"
                                             data-id="${student.id}"
-                                            data-dormitory-id="${student.dormitoryId}"
+                                            data-dormitory-id="${student.dormitory_id}"
                                             data-toggle="modal"
                                             data-target="#delUserModal">
                                         <i class="fa fa-user-o">迁出</i>

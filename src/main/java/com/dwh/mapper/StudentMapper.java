@@ -43,4 +43,8 @@ public interface StudentMapper {
     //更新学生床位
     @Select("update student set dormitory_id = #{param2} where id = #{param1}")
     public void resetDormitoryId(Integer studentId, Integer availableDormitoryId);
+
+    //查询住宿状态是入住的学生信息（为了给迁出学生那一版块显示信息）
+    @Select("select s.id,s.number,s.name name,s.gender,s.dormitory_id dormitory_id,d.name dormitoryName,s.state from student s,dormitory d where s.dormitory_id = d.id and s.state = '入住'")
+    public List<Student> moveOutList();
 }

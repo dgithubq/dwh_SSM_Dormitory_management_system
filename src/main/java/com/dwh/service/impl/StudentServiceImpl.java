@@ -82,4 +82,10 @@ public class StudentServiceImpl implements StudentService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public List<Student> moveOutList() {
+        List<Student> students = mapper.moveOutList();
+        return students;
+    }
 }
