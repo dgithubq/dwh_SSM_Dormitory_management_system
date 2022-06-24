@@ -24,4 +24,13 @@ public class MoveOutController {
         modelAndView.setViewName("moveoutregister");
         return modelAndView;
     }
+
+    @RequestMapping("/search")
+    public ModelAndView search(String key,String value){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Student> studentList = studentService.searchForMoveoutList(key, value);
+        modelAndView.addObject("studentList",studentList);
+        modelAndView.setViewName("moveoutregister");
+        return modelAndView;
+    }
 }

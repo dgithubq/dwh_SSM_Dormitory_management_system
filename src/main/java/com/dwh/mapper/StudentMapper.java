@@ -47,4 +47,10 @@ public interface StudentMapper {
     //查询住宿状态是入住的学生信息（为了给迁出学生那一版块显示信息）
     @Select("select s.id,s.number,s.name name,s.gender,s.dormitory_id dormitory_id,d.name dormitoryName,s.state from student s,dormitory d where s.dormitory_id = d.id and s.state = '入住'")
     public List<Student> moveOutList();
+
+    //根据条件查询moveout
+    @Select("select s.id,s.number,s.name name,s.gender,s.dormitory_id dormitory_id,d.name dormitoryName,s.state from student s,dormitory d where s.dormitory_id = d.id and s.state = '入住' and s.number like concat('%',#{value},'%')")
+    public List<Student> searchForMoveoutByNumber(String value);
+    @Select("select s.id,s.number,s.name name,s.gender,s.dormitory_id dormitory_id,d.name dormitoryName,s.state from student s,dormitory d where s.dormitory_id = d.id and s.state = '入住' and s.name like concat('%',#{value},'%')")
+    public List<Student> searchForMoveoutByName(String value);
 }

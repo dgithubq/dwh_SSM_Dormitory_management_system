@@ -88,4 +88,22 @@ public class StudentServiceImpl implements StudentService {
         List<Student> students = mapper.moveOutList();
         return students;
     }
+
+    @Override
+    public List<Student> searchForMoveoutList(String key, String value) {
+        if (value == null){
+            List<Student> students = mapper.moveOutList();
+            return students;
+        }
+        List<Student> list = null;
+        switch (key){
+            case "number":
+                list = mapper.searchForMoveoutByNumber(value);
+                break;
+            case "name":
+                list = mapper.searchForMoveoutByName(value);
+                break;
+        }
+        return list;
+    }
 }

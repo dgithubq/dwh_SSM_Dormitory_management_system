@@ -18,4 +18,6 @@ public interface StudentService {
     //查询所有在入住的学生信息，入住的就可以进行迁出操作
     public List<Student> moveOutList();
 
+    //条件查询MoveOut
+    public List<Student> searchForMoveoutList(String key, String value);
 }
