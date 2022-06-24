@@ -50,4 +50,13 @@ public class DormitoryServiceImpl implements DormitoryService {
         }
         return list;
     }
+
+    @Override
+    public void update(Dormitory dormitory) {
+        try {
+            dormitoryMapper.update(dormitory);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

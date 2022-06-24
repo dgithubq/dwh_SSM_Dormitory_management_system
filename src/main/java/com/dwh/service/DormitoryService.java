@@ -29,4 +29,10 @@ public interface DormitoryService {
      * @return
      */
     public List<Dormitory> search(String key,String value);
+
+    /**
+     * 更新
+     * @param dormitory
+     */
+    public void update(Dormitory dormitory);
 }

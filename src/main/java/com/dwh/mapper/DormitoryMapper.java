@@ -66,7 +66,13 @@ public interface DormitoryMapper {
      */
     @Select("select d.id,b.name buildingName,d.name name,d.type,d.available,d.telephone from dormitory d,building b where d.building_id = b.id and d.name like concat('%',#{value},'%')")
     public List<Dormitory> searchByName(String value);
-
     @Select("select d.id,b.name buildingName,d.name name,d.type,d.available,d.telephone from dormitory d,building b where d.building_id = b.id and d.telephone like concat('%',#{value},'%')")
     public List<Dormitory> searchByTelephone(String value);
+
+    /**
+     * 更新宿舍信息
+     * @param dormitory
+     */
+    @Update("update dormitory set name = #{name},telephone = #{telephone} where id = #{id}")
+    public void update(Dormitory dormitory);
 }

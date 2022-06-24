@@ -55,4 +55,10 @@ public class DormitoryController {
         modelAndView.setViewName("dormitorymanager");
         return modelAndView;
     }
+
+    @RequestMapping("/update")
+    public String update(Dormitory dormitory){
+       dormitoryService.update(dormitory);
+        return "redirect:/dormitory/list";
+    }
 }
