@@ -49,6 +49,10 @@ public interface DormitoryMapper {
     @Select("select id from dormitory where available > 0 limit 0,1")
     public Integer findAvailableDormitoryId();
 
+    /**
+     * 删除
+     * @param dormitoryId
+     */
     @Delete("delete from dormitory where id = #{dormitoryId}")
     public void delete(Integer dormitoryId);
 
@@ -75,4 +79,5 @@ public interface DormitoryMapper {
      */
     @Update("update dormitory set name = #{name},telephone = #{telephone} where id = #{id}")
     public void update(Dormitory dormitory);
+
 }

@@ -61,4 +61,14 @@ public class DormitoryController {
        dormitoryService.update(dormitory);
         return "redirect:/dormitory/list";
     }
+
+    @RequestMapping("/delete")
+    public String delete(Integer id){
+        try {
+            dormitoryService.delete(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/dormitory/list";
+    }
 }

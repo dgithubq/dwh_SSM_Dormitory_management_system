@@ -72,7 +72,7 @@ public class BuildingServiceImpl implements BuildingService {
         try {
             //查询出所有宿舍的id
             List<Integer> dormitoryIdList = dormitoryMapper.findDormitoryIdByBuildingId(id);
-            //遍历出所有学生id
+            //遍历出所有学生id(可以封装)
             for (Integer dormitoryId:dormitoryIdList) {
                 List<Integer> studentIdList = studentMapper.findStudentIdByDormitoryId(dormitoryId);
                 for (Integer studentId:studentIdList) {

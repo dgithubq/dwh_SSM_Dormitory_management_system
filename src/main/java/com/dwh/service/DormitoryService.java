@@ -35,4 +35,10 @@ public interface DormitoryService {
      * @param dormitory
      */
     public void update(Dormitory dormitory);
+
+    /**
+     * 删除
+     * @param id
+     */
+    public void delete(Integer id);
 }
