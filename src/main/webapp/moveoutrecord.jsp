@@ -63,7 +63,7 @@
                             <td>${moveout.studentName}</td>
                             <td>${moveout.dormitoryName}</td>
                             <td>${moveout.reason}</td>
-                            <td>${moveout.createDate}</td>
+                            <td>${moveout.create_date}</td>
                         </tr>
                     </c:forEach>
                     </tbody>

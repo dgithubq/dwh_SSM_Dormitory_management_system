@@ -112,15 +112,15 @@ public class StudentServiceImpl implements StudentService {
     public void moveout(MoveOut moveout) {
         try {
             //该宿舍空余床位+1
-            dormitoryMapper.addAvailable(Integer.parseInt(moveout.getDormitory_id()));
+            dormitoryMapper.addAvailable(moveout.getDormitory_id());
             //根据学生id，把状态改为迁出
-            mapper.updateStateById(Integer.parseInt(moveout.getStudent_id()));
+            mapper.updateStateById(moveout.getStudent_id());
             Date date = new Date();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             moveout.setCreate_date(format.format(date));
             //把迁出的学生添加到《学生迁出记录》那一栏，即完成迁出这一个动作
             mapper.moveout(moveout);
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -106,8 +106,8 @@
                                                 <input type="hidden" class="form-control" id="tab"
                                                        name="tab" placeholder="" value="dor_admin"> <input
                                                     type="hidden" class="form-control" id="id"
-                                                    name="studentId" placeholder="">
-                                                <input type="hidden" id="dormitoryId" name="dormitoryId">
+                                                    name="student_id" placeholder="">
+                                                <input type="hidden" id="dormitory_id" name="dormitory_id">
                                             </div>
                                         </div>
 
@@ -141,12 +141,12 @@
     $('#delUserModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget)
         var id = button.data('id')
-        var dormitoryId = button.data('dormitory-id')
+        var dormitory_id = button.data('dormitory-id')
         var modal = $(this)
         modal.find('.modal-title').text('学生迁出登记')
         modal.find('#deleteLabel').text('将迁出编号为  ' + id + ' 的学生')
         modal.find('#id').val(id)
-        modal.find('#dormitoryId').val(dormitoryId)
+        modal.find('#dormitory_id').val(dormitory_id)
     })
 </script>
 

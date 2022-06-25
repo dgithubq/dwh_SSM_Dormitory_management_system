@@ -2,6 +2,7 @@ package com.dwh.controller;
 
 import com.dwh.entity.MoveOut;
 import com.dwh.entity.Student;
+import com.dwh.service.MoveOutService;
 import com.dwh.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,9 @@ import java.util.List;
 public class MoveOutController {
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private MoveOutService moveOutService;
 
     @RequestMapping("/list")
     public ModelAndView list(){
@@ -38,5 +42,14 @@ public class MoveOutController {
     public String register(MoveOut moveout){
         studentService.moveout(moveout);
         return "redirect:/moveout/list";
+    }
+
+    @RequestMapping("/record")
+    public ModelAndView record(){
+        List<MoveOut> list = moveOutService.list();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("list",list);
+        modelAndView.setViewName("moveoutrecord");
+        return modelAndView;
     }
 }
