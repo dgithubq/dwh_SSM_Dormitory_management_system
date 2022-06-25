@@ -52,4 +52,13 @@ public class MoveOutController {
         modelAndView.setViewName("moveoutrecord");
         return modelAndView;
     }
+
+    @RequestMapping("/recordSearch")
+    public ModelAndView recordSearch(String key,String value){
+        ModelAndView modelAndView = new ModelAndView();
+        List<MoveOut> list = moveOutService.search(key, value);
+        modelAndView.addObject("list",list);
+        modelAndView.setViewName("moveoutrecord");
+        return modelAndView;
+    }
 }
