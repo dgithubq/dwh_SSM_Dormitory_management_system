@@ -1,5 +1,6 @@
 package com.dwh.mapper;
 
+import com.dwh.entity.MoveOut;
 import com.dwh.entity.Student;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -53,4 +54,12 @@ public interface StudentMapper {
     public List<Student> searchForMoveoutByNumber(String value);
     @Select("select s.id,s.number,s.name name,s.gender,s.dormitory_id dormitory_id,d.name dormitoryName,s.state from student s,dormitory d where s.dormitory_id = d.id and s.state = '入住' and s.name like concat('%',#{value},'%')")
     public List<Student> searchForMoveoutByName(String value);
+
+    //根据id更改学生状态为迁出
+    @Update("update student set state = '迁出' where id = #{id}")
+    public void updateStateById(Integer id);
+
+    //添加学生到《学生迁出记录》中，完成迁出这个动作
+    @Insert("insert into moveout(student_id,dormitory_id,reason,create_date) values(#{student_id},#{dormitory_id},#{reason},#{create_date})")
+    public void moveout(MoveOut moveout);
 }

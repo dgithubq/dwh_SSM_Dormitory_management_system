@@ -1,5 +1,6 @@
 package com.dwh.controller;
 
+import com.dwh.entity.MoveOut;
 import com.dwh.entity.Student;
 import com.dwh.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,10 @@ public class MoveOutController {
         modelAndView.addObject("studentList",studentList);
         modelAndView.setViewName("moveoutregister");
         return modelAndView;
+    }
+    @RequestMapping("/register")
+    public String register(MoveOut moveout){
+        studentService.moveout(moveout);
+        return "redirect:/moveout/list";
     }
 }
