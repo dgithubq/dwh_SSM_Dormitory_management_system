@@ -67,4 +67,8 @@ public interface StudentMapper {
     //添加学生到《学生迁出记录》中，完成迁出这个动作
     @Insert("insert into moveout(student_id,dormitory_id,reason,create_date) values(#{student_id},#{dormitory_id},#{reason},#{create_date})")
     public void moveout(MoveOut moveout);
+
+    //根据宿舍id查学生
+    @Select("select id,name from student where dormitory_id = #{dormitory_id}")
+    public List<Student> findByDormitoryId(Integer dormitoryId);
 }

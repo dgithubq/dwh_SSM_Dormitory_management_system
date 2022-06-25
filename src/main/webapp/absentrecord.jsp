@@ -61,12 +61,12 @@
                     <c:forEach items="${list}" var="absent">
                         <tr>
                             <td>${absent.id}</td>
-                            <td>${absent.buildingName}</td>
-                            <td>${absent.dormitoryName}</td>
-                            <td>${absent.studentName}</td>
+                            <td>${absent.building_name}</td>
+                            <td>${absent.dormitory_name}</td>
+                            <td>${absent.student_name}</td>
                             <td>${absent.reason}</td>
-                            <td>${absent.dormitoryAdminName}</td>
-                            <td>${absent.createDate}</td>
+                            <td>${absent.dormitory_admin_name}</td>
+                            <td>${absent.create_date}</td>
                         </tr>
                     </c:forEach>
                     </tbody>

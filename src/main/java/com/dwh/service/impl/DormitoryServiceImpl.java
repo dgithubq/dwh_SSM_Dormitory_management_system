@@ -83,4 +83,10 @@ public class DormitoryServiceImpl implements DormitoryService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public List<Dormitory> findByBuildingId(Integer buildingId) {
+        List<Dormitory> byBuildingId = dormitoryMapper.findByBuildingId(buildingId);
+        return byBuildingId;
+    }
 }

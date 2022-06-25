@@ -30,4 +30,7 @@ public interface StudentService {
 
     //把学生迁出
     public void moveout(MoveOut moveout);
+
+    //根据宿舍id查学生
+    public List<Student> findByDormitoryId(Integer dormitoryId);
 }

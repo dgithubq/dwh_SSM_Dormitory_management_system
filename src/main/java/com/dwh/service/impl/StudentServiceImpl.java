@@ -124,4 +124,10 @@ public class StudentServiceImpl implements StudentService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public List<Student> findByDormitoryId(Integer dormitoryId) {
+        List<Student> byDormitoryId = mapper.findByDormitoryId(dormitoryId);
+        return byDormitoryId;
+    }
 }

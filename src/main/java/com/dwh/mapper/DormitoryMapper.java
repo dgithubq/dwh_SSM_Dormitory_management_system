@@ -80,4 +80,11 @@ public interface DormitoryMapper {
     @Update("update dormitory set name = #{name},telephone = #{telephone} where id = #{id}")
     public void update(Dormitory dormitory);
 
+    /**
+     * 根据楼栋id查宿舍
+     * @param buildingId
+     * @return
+     */
+    @Select("select id,name from dormitory where building_id = #{building_id}")
+    public List<Dormitory> findByBuildingId(Integer buildingId);
 }

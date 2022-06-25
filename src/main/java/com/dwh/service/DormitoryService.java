@@ -41,4 +41,11 @@ public interface DormitoryService {
      * @param id
      */
     public void delete(Integer id);
+
+    /**
+     * 根据楼栋id查宿舍
+     * @param buildingId
+     * @return
+     */
+    public List<Dormitory> findByBuildingId(Integer buildingId);
 }
