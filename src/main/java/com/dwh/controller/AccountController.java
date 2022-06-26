@@ -36,8 +36,16 @@ public class AccountController {
                 modelAndView.addObject("passwordError","密码错误");
                 break;
             case 0:
-                modelAndView.setViewName("/systemadmin");
-                session.setAttribute("systemAdmin",accountDto.getAdmin());
+                switch (accountForm.getType()){
+                    case "systemAdmin":
+                        modelAndView.setViewName("systemAdmin");
+                        session.setAttribute("systemAdmin",accountDto.getAdmin());
+                        break;
+                    case "dormitoryAdmin":
+                        modelAndView.setViewName("dormitoryadmin");
+                        session.setAttribute("dormitoryAdmin",accountDto.getAdmin());
+                        break;
+                }
                 break;
         }
         return modelAndView;

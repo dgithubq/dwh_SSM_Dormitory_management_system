@@ -13,7 +13,8 @@ public class PrivilegeInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
         Object admin = session.getAttribute("systemAdmin");
-        if (admin==null){
+        Object dormitoryAdmin = session.getAttribute("dormitoryAdmin");
+        if (admin==null&&dormitoryAdmin==null){
             response.sendRedirect(request.getContextPath()+"/login.jsp");
             return false;
         }

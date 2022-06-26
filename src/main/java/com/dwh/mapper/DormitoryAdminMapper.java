@@ -47,4 +47,12 @@ public interface DormitoryAdminMapper {
      */
     @Update("update dormitory_admin set username = #{username},password = #{password},name = #{name},gender = #{gender},telephone = #{telephone} where id = #{id}")
     public void update(DormitoryAdmin dormitoryAdmin);
+
+    /**
+     * 查询所有，用于宿舍管理员登陆
+     * @param username
+     * @return
+     */
+    @Select("select * from dormitory_admin where username = #{username}")
+    public DormitoryAdmin findByUsername(String username);
 }
