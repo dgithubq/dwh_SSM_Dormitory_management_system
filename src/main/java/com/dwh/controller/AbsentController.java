@@ -1,9 +1,6 @@
 package com.dwh.controller;
 
-import com.dwh.entity.Absent;
-import com.dwh.entity.Building;
-import com.dwh.entity.Dormitory;
-import com.dwh.entity.Student;
+import com.dwh.entity.*;
 import com.dwh.service.AbsentService;
 import com.dwh.service.BuildingService;
 import com.dwh.service.DormitoryService;
@@ -13,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -45,8 +43,8 @@ public class AbsentController {
         return modelAndView;
     }
 
-    @RequestMapping("/into")
-    public ModelAndView into(){
+    @RequestMapping("/init")
+    public ModelAndView init(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("absentregister");
         List<Building> buildingList = this.buildingService.list();
@@ -56,5 +54,13 @@ public class AbsentController {
         List<Student> studentList = this.studentService.findByDormitoryId(dormitoryList.get(0).getId());
         modelAndView.addObject("studentList", studentList);
         return modelAndView;
+    }
+
+    @RequestMapping("/save")
+    public String save(Absent absent, HttpSession session){
+        DormitoryAdmin dormitoryAdmin = (DormitoryAdmin)session.getAttribute("dormitoryAdmin");
+        absent.setDormitory_admin_id(dormitoryAdmin.getId());
+        absentService.save(absent);
+        return "redirect:/absent/init";
     }
 }

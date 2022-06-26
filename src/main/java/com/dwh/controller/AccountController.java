@@ -38,7 +38,7 @@ public class AccountController {
             case 0:
                 switch (accountForm.getType()){
                     case "systemAdmin":
-                        modelAndView.setViewName("systemAdmin");
+                        modelAndView.setViewName("systemadmin");
                         session.setAttribute("systemAdmin",accountDto.getAdmin());
                         break;
                     case "dormitoryAdmin":
